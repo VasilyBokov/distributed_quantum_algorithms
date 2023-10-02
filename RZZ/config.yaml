@@ -1,0 +1,19 @@
+# Perfect 2 node network, no noise from either computation on the nodes or communication between nodes
+qdevice_cfg: &qdevice_cfg
+  num_qubits: 5
+
+stacks:
+  - name: Alice
+    qdevice_typ: generic
+    qdevice_cfg:
+      <<: *qdevice_cfg
+
+  - name: Bob
+    qdevice_typ: generic
+    qdevice_cfg:
+      <<: *qdevice_cfg
+
+links:
+  - stack1: Alice
+    stack2: Bob
+    typ: perfect
